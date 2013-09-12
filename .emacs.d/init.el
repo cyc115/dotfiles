@@ -75,3 +75,19 @@
 (require 'jade-mode)    
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
+
+
+;;---------------------
+;; tureg mode for Ocaml
+;;---------------------
+
+(add-to-list 'load-path "~/.emacs.d/tuareg")
+
+
+;;---------------------
+;; include .elisp to init
+;;---------------------
+
+(add-to-list 'load-path (exand-file-name "~/.elisp"))
+
+
