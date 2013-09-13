@@ -168,6 +168,10 @@ PS1="\[\033[0;34m\][\u@\h:\w]$\[\033[0m\]"
 ## -- 2) Set up aliases --
 ## -----------------------
 
+#2.0) shortcuts
+alias yasdir='cd;cd ~/.emacs.d/elpa/yasnippet-0.8.0/snippets/;'
+
+
 # 2.1) Safety
 alias rm="rm -i"
 alias mv="mv -i"
@@ -225,3 +229,17 @@ fi
 
 ## Define any user-specific variables you want here.
 source ~/.bashrc_custom
+
+## ------------------------------
+## -- this added by me  --
+## ------------------------------
+
+#alias gitAC='git add -A ; git commit '
+
+##batch do all the git actions 
+function gitAC {
+    git add -A ;
+    git commit -m $1 ;
+    git pull ;
+    git push ;
+    }
