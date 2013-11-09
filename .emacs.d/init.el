@@ -16,6 +16,7 @@
 (require 'whitespace)
 (require 'dired-x)
 (require 'compile)
+(require 'emmet-mode)
 (ido-mode t)
 (menu-bar-mode -1)
 (normal-erase-is-backspace-mode 1)
@@ -52,26 +53,48 @@
 ;; -- Macros --
 ;; ------------
 (load "defuns-config.el")
-(fset 'align-equals "\C-[xalign-regex\C-m=\C-m")
+;;(fset 'align-equals "\C-[xalign-regex\C-m=\C-m")
 (global-set-key "\M-=" 'align-equals)
-(global-set-key "\C-x\C-m" 'execute-extended-command)
-(global-set-key "\C-c;" 'comment-or-uncomment-region)
-(global-set-key "\M-n" 'next5)
-(global-set-key "\M-p" 'prev5)
-(global-set-key "\M-o" 'other-window)
-(global-set-key "\M-i" 'back-window)
-(global-set-key "\C-z" 'zap-to-char)
-(global-set-key "\C-h" 'backward-delete-char)
-(global-set-key "\M-d" 'delete-word)
-(global-set-key "\M-h" 'backward-delete-word)
-(global-set-key "\M-u" 'zap-to-char)
+(global-set-key "\c-x\c-m" 'execute-extended-command)
+(global-set-key "\c-c;" 'comment-or-uncomment-region)
+(global-set-key "\m-n" 'next5)
+(global-set-key "\m-p" 'prev5)
+(global-set-key "\m-o" 'other-window)
+(global-set-key "\m-i" 'back-window)
+(global-set-key "\c-z" 'zap-to-char)
+(global-set-key "\c-h" 'backward-delete-char)
+(global-set-key "\m-d" 'delete-word)
+(global-set-key "\m-h" 'backward-delete-word)
+(global-set-key "\m-u" 'zap-to-char)
+(global-set-key (kbd "\C-c \C-z" )b'emmet-expand-line)
+
+
+
 
 ;; ---------------------------
-;; -- JS Mode configuration --
+;; -- js mode configuration --
 ;; ---------------------------
 (load "js-config.el")
 (add-to-list 'load-path "~/.emacs.d/jade-mode") ;; github.com/brianc/jade-mode
+
 (require 'sws-mode)
 (require 'jade-mode)    
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
+
+;; ---------------------------
+;; -- emmet config -----------OB
+;; ---------------------------
+;;https://github.com/smihica/emmet-mode
+
+(require 'emmet-mode)
+(add-to-list 'load-path "~/emacs.d/")
+(load "emmet-mode.el")
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+(add-hook 'html-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+
+
+;;-----------------------------
+;;---remember buffer ----------
+(desktop-save-mode 1)

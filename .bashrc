@@ -187,6 +187,7 @@ alias md='mkdir'
 alias cl='clear'
 alias du='du -ch --max-depth=1'
 alias treeacl='tree -A -C -L 2'
+alias media='cd;..;..;cd media;ls;'
 
 # 2.3) Text and editor commands
 alias em='emacs -nw'     # No X11 windows
@@ -225,3 +226,55 @@ fi
 
 ## Define any user-specific variables you want here.
 source ~/.bashrc_custom
+
+
+##league of legend config 
+
+alias lol='cd "/home/yuechuan/.wine/dosdevices/c:/Program Files/Riot Games/League of Legends/RADS/system" ;WINEDEBUG=+ntdll wine "rads_user_kernel.exe" run lol_launcher $(ls ../projects/lol_launcher/releases/) LoLLauncher.exe'
+
+
+##push book to kindleServer on to myhost2
+##only works for name without space or other escapable characters 
+##out dated !
+##pushToKindle(){
+##    scp $1 myhost2:kindleServer/book
+##    }
+    
+##set up ros ##does not seem to work 
+echo 'ros sourcing is enabled'
+source /opt/ros/hydro/setupYue.sh
+
+##geeknote alias: login to evernote
+echo ---
+echo '[geeknote]=[gn] is enabled'
+echo '[gnhelp] for more info'
+alias geeknote="python /home/yuechuan/git/geeknote/geeknote.py"
+alias gn="geeknote"
+
+gnhelp(){
+    echo 'more at https://github.com/VitaliyRodnenko/geeknote'
+    echo '--gnedit [note title]--
+edits the already existing note'
+    echo '--gncreate [title]-- 
+create a note in the default notebook and start in editing mode'
+
+}    
+
+
+#edit existing notes based on title 
+to_str (){
+    echo "$*"
+}
+
+gnedit(){
+    
+    geeknote edit -n "$*" -c "WRITE"
+}
+gncreate(){
+    geeknote create --title "$*" --content " "
+    gnedit "$*"
+}
+
+
+
+echo ---
