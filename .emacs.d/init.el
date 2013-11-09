@@ -82,19 +82,15 @@
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
-;; ---------------------------
-;; -- emmet config -----------OB
-;; ---------------------------
-;;https://github.com/smihica/emmet-mode
-
-(require 'emmet-mode)
-(add-to-list 'load-path "~/emacs.d/")
-(load "emmet-mode.el")
-(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-(add-hook 'html-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-
 
 ;;-----------------------------
 ;;---remember buffer ----------
 (desktop-save-mode 1)
+
+
+;;---------------------
+;; tureg mode for Ocaml
+;;---------------------
+
+(add-to-list 'load-path "~/.emacs.d/tuareg")
+

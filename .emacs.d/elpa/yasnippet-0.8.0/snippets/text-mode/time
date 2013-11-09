@@ -1,4 +1,8 @@
 # name: (current time)
 # key: time
 # --
+<<<<<<< HEAD
 `(current-time-string)`
+=======
+[`(current-time-string)`]
+>>>>>>> c4c1211a2b64462ecb1a45e0a4265f09af5f8ff6

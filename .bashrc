@@ -168,6 +168,10 @@ PS1="\[\033[0;34m\][\u@\h:\w]$\[\033[0m\]"
 ## -- 2) Set up aliases --
 ## -----------------------
 
+#2.0) shortcuts
+alias yasdir='cd;cd ~/.emacs.d/elpa/yasnippet-0.8.0/snippets/;'
+
+
 # 2.1) Safety
 alias rm="rm -i"
 alias mv="mv -i"
@@ -227,25 +231,11 @@ fi
 ## Define any user-specific variables you want here.
 source ~/.bashrc_custom
 
-
-##league of legend config 
-
-alias lol='cd "/home/yuechuan/.wine/dosdevices/c:/Program Files/Riot Games/League of Legends/RADS/system" ;WINEDEBUG=+ntdll wine "rads_user_kernel.exe" run lol_launcher $(ls ../projects/lol_launcher/releases/) LoLLauncher.exe'
-
-
-##push book to kindleServer on to myhost2
-##only works for name without space or other escapable characters 
-##out dated !
-##pushToKindle(){
-##    scp $1 myhost2:kindleServer/book
-##    }
-    
-##set up ros ##does not seem to work 
-echo 'ros sourcing is enabled'
-source /opt/ros/hydro/setupYue.sh
-
+##----------------------------------
 ##geeknote alias: login to evernote
-echo ---
+##----------------------------------
+
+echo --
 echo '[geeknote]=[gn] is enabled'
 echo '[gnhelp] for more info'
 alias geeknote="python /home/yuechuan/git/geeknote/geeknote.py"
@@ -275,6 +265,3 @@ gncreate(){
     gnedit "$*"
 }
 
-
-
-echo ---
