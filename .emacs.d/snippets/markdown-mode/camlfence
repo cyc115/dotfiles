@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: caml fence
+# key: mcaml
+# --
+
+```ocaml
+
+${1:content}
+
+```

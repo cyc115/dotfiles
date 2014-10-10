@@ -63,3 +63,6 @@ export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/heroku/bin:$PATH # Heroku: https://toolbelt.heroku.com/standalone
+
+# OPAM configuration
+. /home/yuechuan/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true

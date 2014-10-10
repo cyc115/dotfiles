@@ -192,6 +192,7 @@ alias cl='clear'
 alias du='du -ch --max-depth=1'
 alias treeacl='tree -A -C -L 2'
 alias media='cd;..;..;cd media;ls;'
+alias bashrc='em ./.bashrc_custom'
 
 # 2.3) Text and editor commands
 alias em='emacs -nw'     # No X11 windows
@@ -222,7 +223,7 @@ export LC_ALL=POSIX
 #   NVM_DIR=~/.nvm
 #    source ~/.nvm/nvm.sh
   #  nvm use v0.10.12 &> /dev/null # silence nvm use; needed for rsync
-fi
+#fi
 
 ## ------------------------------
 ## -- 3) User-customized code  --

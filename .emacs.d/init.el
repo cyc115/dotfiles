@@ -1,96 +1,47 @@
-;; -*- mode: emacs-lisp -*-
-;; Simple .emacs configuration
+(require 'package)
+;;add MELPA to repo list
 
-;; ---------------------
-;; -- Global Settings --
-;; ---------------------
-(add-to-list 'load-path "~/.emacs.d")
-(require 'cl)
-(require 'ido)
-(require 'ffap)
-(require 'uniquify)
-(require 'ansi-color)
-(require 'recentf)
-(require 'linum)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+;;init package.el
+
+(package-initialize)
+
+;;auto complete
+(require 'auto-complete)
+;;default config for auto-complete
+(require 'auto-complete-config)
+(ac-config-default)
+
+;;init yasnippet 
+(require 'yasnippet)
+(yas-global-mode 1)
+(add-hook 'c-mode-hook
+            (lambda ()
+              (add-to-list 'ac-sources 'ac-source-c-headers)
+             ;; (add-to-list 'ac-sources 'ac-source-c-header-symbols " /usr/include/x86_64-linux-gnu/c++/4.8" )
+	      )
+	    )
+
+;;enable line number 
+(global-linum-mode t)
+;;enable auto pair auto indent
+(electric-indent-mode 1)
+(electric-pair-mode 1)
+(electric-layout-mode 1)
+;;correct indent to 4 space
+(setq-default c-basic-offset 4)
+
+;;set up cedet ide mode
+(global-ede-mode 1)
+
+;;smooth scrolling
 (require 'smooth-scrolling)
-(require 'whitespace)
-(require 'dired-x)
-(require 'compile)
-(require 'emmet-mode)
-(ido-mode t)
-(menu-bar-mode -1)
-(normal-erase-is-backspace-mode 1)
-(put 'downcase-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(setq column-number-mode t)
-(setq inhibit-startup-message t)
-(setq save-abbrevs nil)
-(setq show-trailing-whitespace t)
-(setq suggest-key-bindings t)
-(setq vc-follow-symlinks t)
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit autoface-default :strike-through nil :underline nil :slant normal :weight normal :height 120 :width normal :family "monaco"))))
- '(column-marker-1 ((t (:background "red"))))
- '(diff-added ((t (:foreground "cyan"))))
- '(flymake-errline ((((class color) (background light)) (:background "Red"))))
- '(font-lock-comment-face ((((class color) (min-colors 8) (background light)) (:foreground "red"))))
- '(fundamental-mode-default ((t (:inherit default))))
- '(highlight ((((class color) (min-colors 8)) (:background "white" :foreground "magenta"))))
- '(isearch ((((class color) (min-colors 8)) (:background "yellow" :foreground "black"))))
- '(linum ((t (:foreground "black" :weight bold))))
- '(region ((((class color) (min-colors 8)) (:background "white" :foreground "magenta"))))
- '(secondary-selection ((((class color) (min-colors 8)) (:background "gray" :foreground "cyan"))))
- '(show-paren-match ((((class color) (background light)) (:background "black"))))
- '(vertical-border ((t nil)))
-)
-
-;; ------------
-;; -- Macros --
-;; ------------
-(load "defuns-config.el")
-;;(fset 'align-equals "\C-[xalign-regex\C-m=\C-m")
-(global-set-key "\M-=" 'align-equals)
-(global-set-key "\c-x\c-m" 'execute-extended-command)
-(global-set-key "\c-c;" 'comment-or-uncomment-region)
-(global-set-key "\m-n" 'next5)
-(global-set-key "\m-p" 'prev5)
-(global-set-key "\m-o" 'other-window)
-(global-set-key "\m-i" 'back-window)
-(global-set-key "\c-z" 'zap-to-char)
-(global-set-key "\c-h" 'backward-delete-char)
-(global-set-key "\m-d" 'delete-word)
-(global-set-key "\m-h" 'backward-delete-word)
-(global-set-key "\m-u" 'zap-to-char)
-(global-set-key (kbd "\C-c \C-z" )b'emmet-expand-line)
+(require 'tuareg)
 
 
 
 
-;; ---------------------------
-;; -- js mode configuration --
-;; ---------------------------
-(load "js-config.el")
-(add-to-list 'load-path "~/.emacs.d/jade-mode") ;; github.com/brianc/jade-mode
-
-(require 'sws-mode)
-(require 'jade-mode)    
-(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
-(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
 
-;;-----------------------------
-;;---remember buffer ----------
-(desktop-save-mode 1)
-
-
-;;---------------------
-;; tureg mode for Ocaml
-;;---------------------
-
-(add-to-list 'load-path "~/.emacs.d/tuareg")
 

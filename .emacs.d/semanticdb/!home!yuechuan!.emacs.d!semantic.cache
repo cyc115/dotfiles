@@ -1,0 +1,52 @@
+;; Object .emacs.d/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file ".emacs.d/"
+  :tables (list 
+   (semanticdb-table "c.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("var" variable (:type ("std::map" type
+                 (:template-specifier 
+                    ( ("type1" type nil nil nil))                    
+                  :type "class")
+                  nil nil)) nil [15 35])
+            ("var" variable (:type ("std::map" type
+                 (:template-specifier 
+                    ( ("type1" type nil nil nil))                    
+                  :type "class")
+                  nil nil)) nil [36 56])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [67 76])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [77 90]))                  
+                :type "int")
+                nil [58 107])
+            ("iter" variable (:type "int") nil [136 153])
+            ("end" function
+               (:prototype-flag t
+                :type "int")
+                nil [164 170]))          
+    :file "c.cpp"
+    :pointmax 150
+    :fsize 189
+    :lastmodtime '(21532 28501 24774 929000)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "c.c"
+    :major-mode 'c-mode
+    :tags nil
+    :file "c.c"
+    :pointmax 1
+    :fsize 149
+    :lastmodtime '(21532 28501 980774 971000)
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "!home!yuechuan!.emacs.d!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2"
+  )
