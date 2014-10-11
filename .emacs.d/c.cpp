@@ -1,20 +1,18 @@
-  return 0;
-}
-std::map<type1> var;
-std::map<type1> var;
-
+namespace namespace std;
 int main(int argc, char *argv[])
 {
+    namespace namespace std;
+    int main(int argc, char *argv[])
+    {
+	while (dsak) {
+  
+	}
+	for (iter=var.begin(); iter!=var.end(); ++iter) {
+  
+	}
+    
+	return 0;
 
-  return 0;
+    }
+
 }
-
-
-while (dsak) {
-  
- }
-for (iter=var.begin(); iter!=var.end(); ++iter) {
-  
- }
-
-f
