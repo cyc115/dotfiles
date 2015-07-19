@@ -8,6 +8,12 @@
 ;;init package.el
 (package-initialize)
 
+;;paren highlighting
+(require 'paren)
+(setq show-paren-style 'mixed)
+(show-paren-mode 1)
+
+
 ;;auto complete
 (require 'auto-complete)
 ;;default config for auto-complete

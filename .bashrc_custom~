@@ -1,11 +1,5 @@
-## *Please note that if using this ppa I would *not* try upgrading to 14.10/15.04, ect. Do a fresh install instead. The intent here is just for users wishing to stay on 14.04*
-
-## If upgrading releases anyway use ppa-purge *First* -
-## sudo ppa-purge ppa:mc3man/trusty-media
-
-
 ##on system start
-##redshift &
+redshift &
 
 
 #ssh into koding 
@@ -37,17 +31,11 @@ function bashrc {
 	source $HOME/.bashrc_custom 
 }
 	
-#set up node js
-export NODE_PATH="/usr/local/bin/node"
+
 #set up scala 
 export SCALA_HOME="/home/yuechuan/Application/scala-2.11.1"
 #set up sbt
 PATH=$PATH:/home/yuechuan/Application/sbt/bin
-#set up node webkit
-PATH=$PATH:/home/yuechuan/Application/nwjs
-
-#scripts that I have made will
-PATH=$PATH:/home/yuechuan/Documents/myscript
 
 #set up lang var
 export LANG="en_CA.UTF-8"
