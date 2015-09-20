@@ -3,10 +3,7 @@
 ## If upgrading releases anyway use ppa-purge *First* -
 ## sudo ppa-purge ppa:mc3man/trusty-media
 
-
 ##on system start
-##redshift &
-
 
 #ssh into koding 
 alias koding='ssh vm-0.iamcyc93826.koding.kd.io'
@@ -18,9 +15,10 @@ alias school='sshpass -p "rNA8si4J" ssh -o StrictHostKeyChecking=no ychen225@mim
 ##directories
 alias home='cd $HOME'
 alias application='cd $HOME/Application/'
-
+alias docs='cd $HOME/Dropbox/mcgill\ y4/'
 
 ##application short cuts
+alias ws='/application/WebStorm-141.1550/bin/webstorm.sh'
 alias src='source $HOME/.bashrc_custom'
 alias eclipse='/home/yuechuan/Application/adt-bundle-linux-x86_64-20140321/eclipse/eclipse'
 alias studio='/home/yuechuan/Application/android-studio/bin/studio.sh'
@@ -30,6 +28,10 @@ alias idea='/home/yuechuan/Application/idea-IC-135.909/bin/idea.sh'
 alias sublime='sudo /home/yuechuan/Application/sublime_text_3/sublime_text'
 alias matlab='Application/matlab/bin/matlab'
 alias egg='bash ~/dotfiles/eggtimer.sh'
+alias nw='/home/yuechuan/Github/photo-on-map/node_modules/nw/bin/nw'
+
+#mcgill anyConnect vpn
+alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
 
 #set up quick bashrc
 function bashrc {
@@ -45,6 +47,16 @@ export SCALA_HOME="/home/yuechuan/Application/scala-2.11.1"
 PATH=$PATH:/home/yuechuan/Application/sbt/bin
 #set up node webkit
 PATH=$PATH:/home/yuechuan/Application/nwjs
+#add application folder to path
+PATH=$PATH:/home/yuechuan/Application
+#add go to path
+PATH=$PATH:/home/yuechuan/Application/go/bin
+#android stuff
+PATH=$PATH:/home/yuechuan/Application/android-sdk-linux/tools
+PATH=$PATH:/home/yuechuan/Application/android-sdk-linux/platform-tools
+#mysql
+PATH=$PATH:/home/yuechuan/Application/mysql-5.6.26-linux-glibc2.5-x86_64/bin
+
 
 #scripts that I have made will
 PATH=$PATH:/home/yuechuan/Documents/myscript
@@ -54,5 +66,9 @@ export LANG="en_CA.UTF-8"
 export LC_ALL="en_CA.UTF-8"
 PATH=$PATH:~/dotfiles/bin
 
+
 #emacs
 alias em='emacs -nw'
+
+#set up TESSERACT PDF OCR variable
+TESSDATA_PREFIX=/home/yuechuan/Application/tesseract-ocr/
