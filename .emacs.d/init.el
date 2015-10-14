@@ -8,6 +8,12 @@
 ;;init package.el
 (package-initialize)
 
+;;paren highlighting
+(require 'paren)
+(setq show-paren-style 'mixed)
+(show-paren-mode 1)
+
+
 ;;auto complete
 (require 'auto-complete)
 ;;default config for auto-complete
@@ -80,9 +86,15 @@
 
 (add-hook 'window-setup-hook 'on-after-init)
 
+;;for go-mode: allow the go environment variables GOROOT and GOPATH to be visible within emacs shell, this allows the command `go build` to work in emacs
+;; required lib : exec-path-from-shell
 
+;;(exec-path-from-shell-getenv "GOPATH")
+;;(exec-path-from-shell-getenv "GOROOT")
 
-
+;;auto hilight current symbol
+(require 'auto-highlight-symbol)
+(global-auto-highlight-symbol-mode t)
 
 
 

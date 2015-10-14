@@ -1,0 +1,46 @@
+##on system start
+redshift &
+
+
+#ssh into koding 
+alias koding='ssh vm-0.iamcyc93826.koding.kd.io'
+
+#ssh into pi @ home 
+alias pi='ssh pi@192.168.0.105'
+alias school='sshpass -p "rNA8si4J" ssh -o StrictHostKeyChecking=no ychen225@mimi.cs.mcgill.ca'
+
+##directories
+alias home='cd $HOME'
+alias application='cd $HOME/Application/'
+
+
+##application short cuts
+alias src='source $HOME/.bashrc_custom'
+alias eclipse='/home/yuechuan/Application/adt-bundle-linux-x86_64-20140321/eclipse/eclipse'
+alias studio='/home/yuechuan/Application/android-studio/bin/studio.sh'
+alias jdk8='sudo update-java-alternatives -s java-8-oracle'
+alias jdk7='sudo update-java-alternatives -s java-7-oracle'
+alias idea='/home/yuechuan/Application/idea-IC-135.909/bin/idea.sh'
+alias sublime='sudo /home/yuechuan/Application/sublime_text_3/sublime_text'
+alias matlab='Application/matlab/bin/matlab'
+alias egg='bash ~/dotfiles/eggtimer.sh'
+
+#set up quick bashrc
+function bashrc {
+	nano $HOME/.bashrc_custom
+	source $HOME/.bashrc_custom 
+}
+	
+
+#set up scala 
+export SCALA_HOME="/home/yuechuan/Application/scala-2.11.1"
+#set up sbt
+PATH=$PATH:/home/yuechuan/Application/sbt/bin
+
+#set up lang var
+export LANG="en_CA.UTF-8"
+export LC_ALL="en_CA.UTF-8"
+PATH=$PATH:~/dotfiles/bin
+
+#emacs
+alias em='emacs -nw'
