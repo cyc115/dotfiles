@@ -31,16 +31,16 @@ alias idea='/home/yuechuan/Application/idea-IC-135.909/bin/idea.sh'
 alias sublime='sudo /home/yuechuan/Application/sublime_text_3/sublime_text'
 alias matlab='Application/matlab/bin/matlab'
 alias egg='bash ~/dotfiles/eggtimer.sh'
-alias nw='/home/yuechuan/Github/photo-on-map/node_modules/nw/bin/nw'
-
+alias nw='~/Github/photo-on-map/node_modules/nw/bin/nw
+alias xmind='~/Application/xmind/XMind_Linux_64bit/XMind'
 
 #mcgill anyConnect vpn
 alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
 
 #set up quick bashrc
 function bashrc {
-	nano $HOME/.bashrc_custom
-	source $HOME/.bashrc_custom 
+	em ~/.bashrc_custom
+	source ~/.bashrc_custom 
 }
 	
 #set up node js
@@ -53,13 +53,20 @@ PATH=$PATH:/home/yuechuan/Application/sbt/bin
 PATH=$PATH:/home/yuechuan/Application/nwjs
 #add application folder to path
 PATH=$PATH:/home/yuechuan/Application
+
 #add go to path
-export GOROOT=/home/yuechuan/Application/go
-PATH=$PATH:$GOROOT/bin
+#export GOROOT=/home/yuechuan/Application/go
+#PATH=$PATH:$GOROOT/bin
+
 #function to set current dir as GOPATH
 function gopath
 {
 export GOPATH=`pwd`
+}
+
+function goinit
+{
+mkdir bin pkg src
 }
 
 #android stuff
