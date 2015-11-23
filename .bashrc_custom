@@ -31,7 +31,7 @@ alias idea='/home/yuechuan/Application/idea-IC-135.909/bin/idea.sh'
 alias sublime='sudo /home/yuechuan/Application/sublime_text_3/sublime_text'
 alias matlab='Application/matlab/bin/matlab'
 alias egg='bash ~/dotfiles/eggtimer.sh'
-alias nw='~/Github/photo-on-map/node_modules/nw/bin/nw
+alias nw='~/Github/photo-on-map/node_modules/nw/bin/nw'
 alias xmind='~/Application/xmind/XMind_Linux_64bit/XMind'
 
 #mcgill anyConnect vpn
@@ -42,7 +42,14 @@ function bashrc {
 	em ~/.bashrc_custom
 	source ~/.bashrc_custom 
 }
-	
+
+###################
+## basic functions
+###################
+
+alias ls='ls --color=auto -h --group-directories-first'
+
+
 #set up node js
 export NODE_PATH="/usr/local/bin/node"
 #set up scala 
