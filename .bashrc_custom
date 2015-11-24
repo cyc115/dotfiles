@@ -15,7 +15,8 @@ function bashrc {
 alias home='cd $HOME'
 alias ls='ls --color=auto -h --group-directories-first'
 alias em='emacs -nw'
-
+alias 'glog'='git log --graph --dec'
+alias gac='git commit -am'
 
 #set up lang var
 export LANG="en_CA.UTF-8"
@@ -37,6 +38,7 @@ function goinit
 {
 	mkdir bin pkg src
 }
+
 
 
 
