@@ -266,3 +266,5 @@ source ~/.bashrc_custom
 #    gnedit "$*"
 #}
 
+
+[[ -s "/home/yuechuan/.gvm/scripts/gvm" ]] && source "/home/yuechuan/.gvm/scripts/gvm"
