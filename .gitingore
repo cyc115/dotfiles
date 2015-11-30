@@ -1,0 +1,2 @@
+# ignore emacs autosave files
+.emacs.d/auto-save-list/*
