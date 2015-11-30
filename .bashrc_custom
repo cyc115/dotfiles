@@ -5,15 +5,12 @@
 
 ##on system start
 
-#ssh into koding 
+#ssh aliases
 alias koding='ssh vm-0.iamcyc93826.koding.kd.io'
-
-#ssh into pi @ home 
 alias pi='ssh pi@192.168.0.105'
 alias school='sshpass -p "rNA8si4J" ssh -o StrictHostKeyChecking=no ychen225@mimi.cs.mcgill.ca'
-
-#ssh to yifan
 alias gf='sshpass -p"Ab1*abcde12" ssh -o StrictHostKeyChecking=no guofan@barn.cim.mcgill.ca'
+alias vm='ssh -p 3022 127.0.0.1'
 
 ##directories
 alias home='cd $HOME'
@@ -32,7 +29,9 @@ alias sublime='sudo /home/yuechuan/Application/sublime_text_3/sublime_text'
 alias matlab='Application/matlab/bin/matlab'
 alias egg='bash ~/dotfiles/eggtimer.sh'
 alias nw='~/Github/photo-on-map/node_modules/nw/bin/nw'
-alias xmind='~/Application/xmind/XMind_Linux_64bit/XMind'
+alias xmind='cd /home/yuechuan/Application/xmind/XMind_Linux_64bit && ./XMind & cd'
+
+alias serverdir='python -m SimpleHTTPServer'
 
 #mcgill anyConnect vpn
 alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
