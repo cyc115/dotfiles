@@ -1,0 +1,8 @@
+../anaconda_mode.py
+../anaconda_mode.pyc
+./
+SOURCES.txt
+dependency_links.txt
+requires.txt
+top_level.txt
+PKG-INFO
