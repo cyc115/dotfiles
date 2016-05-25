@@ -11,6 +11,9 @@ alias pi='ssh pi@192.168.0.105'
 alias school='sshpass -p "rNA8si4J" ssh -o StrictHostKeyChecking=no ychen225@mimi.cs.mcgill.ca'
 alias gf='sshpass -p"Ab1*abcde12" ssh -o StrictHostKeyChecking=no guofan@barn.cim.mcgill.ca'
 alias vm='ssh -p 3022 127.0.0.1'
+#database assignment server
+alias db='sshpass -p"cupramen2" ssh -o StrictHostKeyChecking=no cs421g17@comp421.cs.mcgill.ca'
+
 
 ##directories
 alias home='cd $HOME'
@@ -24,12 +27,62 @@ alias eclipse='/home/yuechuan/Application/adt-bundle-linux-x86_64-20140321/eclip
 alias studio='/home/yuechuan/Application/android-studio/bin/studio.sh'
 alias jdk8='sudo update-java-alternatives -s java-8-oracle'
 alias jdk7='sudo update-java-alternatives -s java-7-oracle'
-alias idea='/home/yuechuan/Application/idea-IC-135.909/bin/idea.sh'
+alias idea='/home/yuechuan/Application/idea/bin/idea.sh'
 alias sublime='sudo /home/yuechuan/Application/sublime_text_3/sublime_text'
 alias matlab='Application/matlab/bin/matlab'
 alias egg='bash ~/dotfiles/eggtimer.sh'
 alias nw='~/Github/photo-on-map/node_modules/nw/bin/nw'
 alias xmind='cd /home/yuechuan/Application/xmind/XMind_Linux_64bit && ./XMind & cd'
+alias rs='redshift -O'
+
+alias serverdir='python -m SimpleHTTPServer'
+alias vagrant='sudo vagrant'
+
+#mcgill anyConnect vpn
+alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
+
+#set up quick bashrc
+function bashrc {
+	em ~/.bashrc_custom
+	source ~/.bashrc_custom 
+}
+
+###################
+## basic functions
+###################
+
+alias ls='ls --color=auto -h --group-directories-first'
+
+
+#set up node js
+export NODE_PATH="/usr/bin/nodejs"
+#set up scala 
+export SCALA_HOME="/home/yuechuan/Application/scala-2.11.1"
+#set up sbt
+PATH=$PATH:/home/yuechuan/Application/sbt/bin
+#set up node webkit
+PATH=$PATH:/home/yuechuan/Application/nwjs
+#add application folder to path
+PATH=$PATH:/home/yuechuan/Application
+
+#add go to path
+alias docs='cd $HOME/Dropbox/mcgill\ y4/'
+
+##application short cuts
+alias ws='/application/WebStorm-141.1550/bin/webstorm.sh'
+alias src='source $HOME/.bashrc_custom'
+alias eclipse='/home/yuechuan/Application/adt-bundle-linux-x86_64-20140321/eclipse/eclipse'
+alias studio='/home/yuechuan/Application/android-studio/bin/studio.sh'
+alias jdk8='sudo update-java-alternatives -s java-8-oracle'
+alias jdk7='sudo update-java-alternatives -s java-7-oracle'
+alias idea='/home/yuechuan/Application/idea/bin/idea.sh'
+alias sublime='sudo /home/yuechuan/Application/sublime_text_3/sublime_text'
+alias matlab='Application/matlab/bin/matlab'
+alias egg='bash ~/dotfiles/eggtimer.sh'
+alias nw='~/Github/photo-on-map/node_modules/nw/bin/nw'
+alias xmind='cd /home/yuechuan/Application/xmind/XMind_Linux_64bit && ./XMind & cd'
+alias rs='redshift -O'
+alias folder='nautilus . &'
 
 alias serverdir='python -m SimpleHTTPServer'
 
@@ -50,7 +103,7 @@ alias ls='ls --color=auto -h --group-directories-first'
 
 
 #set up node js
-export NODE_PATH="/usr/local/bin/node"
+export NODE_PATH="/usr/bin/nodejs"
 #set up scala 
 export SCALA_HOME="/home/yuechuan/Application/scala-2.11.1"
 #set up sbt
@@ -61,7 +114,9 @@ PATH=$PATH:/home/yuechuan/Application/nwjs
 PATH=$PATH:/home/yuechuan/Application
 
 #add go to path
-#export GOROOT=/home/yuechuan/Application/go
+export GOROOT=/usr/lib/go
+export GOPATH=/home/yuechuan/Github/FirefighterTracking/prototype/server
+export GOPATH=$GOPATH:/home/yuechuan/Github/FirefighterTracking/prototype/videoserver
 #PATH=$PATH:$GOROOT/bin
 
 #function to set current dir as GOPATH
@@ -100,3 +155,19 @@ TESSDATA_PREFIX=/home/yuechuan/Application/tesseract-ocr/
 
 #Jekyll alias
 alias jk=jekyll
+
+############################
+##additional functionalities
+############################
+
+function webscrap {
+wget \
+     --recursive \
+          --no-clobber \
+	       --page-requisites \
+			--accept $2 \
+		         --convert-links \
+			      --restrict-file-names=windows \
+				        --no-parent \
+					         $1
+}
