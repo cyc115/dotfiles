@@ -1,3 +1,23 @@
+##on work VM
+alias sqlsource='mysql -h ace-db-1.cbrain.mcgill.ca -u cyc_admin -pCycHasThisPassword123! --verbose cyc_sandbox < '
+export PATH=/home/lorisadmin/anaconda3/bin:$PATH
+alias pcs='phpcs --extensions=php/php,inc/php '
+alias pcb='phpcbf --extensions=php/php,inc/php '
+
+#cd to the project file
+cd /var/www/loris/
+
+
+
+
+
+
+
+
+
+
+
+
 ## *Please note that if using this ppa I would *not* try upgrading to 14.10/15.04, ect. Do a fresh install instead. The intent here is just for users wishing to stay on 14.04*
 
 ## If upgrading releases anyway use ppa-purge *First* -
@@ -13,7 +33,7 @@ alias gf='sshpass -p"Ab1*abcde12" ssh -o StrictHostKeyChecking=no guofan@barn.ci
 alias vm='ssh -p 3022 127.0.0.1'
 #database assignment server
 alias db='sshpass -p"cupramen2" ssh -o StrictHostKeyChecking=no cs421g17@comp421.cs.mcgill.ca'
-
+alias workdb='mysql -h ace-db-1.cbrain.mcgill.ca -u cyc_admin -p'
 
 ##directories
 alias home='cd $HOME'
