@@ -6,6 +6,15 @@
 (tool-bar-mode -1)
 
 
+;;no tabs (even though they are great)
+(setq-default indent-tabs-mode nil)
+
+;;add an ugly ruler at the top of buffer
+(add-hook 'window-configuration-change-hook (lambda () (ruler-mode 1)))
+
+;;auto refresh when disk file changed
+(global-auto-revert-mode t)
+
 (defun connect-c421 ()
   (interactive)
   (dired "/ssh:cs421g17@comp421.cs.mcgill.ca:/"))
@@ -88,7 +97,7 @@
 ;;============================
 (require 'tuareg)
 
-
+ (add-to-list 'auto-mode-alist '("\\.inc\\'" . php-mode))
 
 ;;=====================================
 ;; auto enable anacoda for python dev
