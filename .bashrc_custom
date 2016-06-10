@@ -13,7 +13,8 @@ alias gf='sshpass -p"Ab1*abcde12" ssh -o StrictHostKeyChecking=no guofan@barn.ci
 alias vm='ssh -p 3022 127.0.0.1'
 #database assignment server
 alias db='sshpass -p"cupramen2" ssh -o StrictHostKeyChecking=no cs421g17@comp421.cs.mcgill.ca'
-
+alias mntWorkDrive='sudo sshfs -o allow_other lorisadmin@132.206.37.107:/var/www/loris/ /mnt/work
+alias work='sshpass -p "cyc93826" ssh -o StrictHostKeyChecking=no lorisadmin@132.206.37.107 -YC'
 
 ##directories
 alias home='cd $HOME'
