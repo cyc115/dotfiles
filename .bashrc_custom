@@ -17,10 +17,10 @@ alias db='sshpass -p"cupramen2" ssh -o StrictHostKeyChecking=no cs421g17@comp421
 ##directories
 alias home='cd $HOME'
 alias application='cd $HOME/Application/'
-alias docs='cd $HOME/Dropbox/mcgill\ y4/'
 
 ##application short cuts
 alias sl='ls'
+alias ls='ls --color=auto -h --group-directories-first -t -r'
 alias ws='/application/WebStorm-141.1550/bin/webstorm.sh'
 alias src='source $HOME/.bashrc_custom'
 alias eclipse='/home/yuechuan/Application/adt-bundle-linux-x86_64-20140321/eclipse/eclipse'
@@ -38,24 +38,28 @@ alias rs='redshift -O'
 alias serverdir='python -m SimpleHTTPServer'
 alias vagrant='sudo vagrant'
 
-#more ssh 
+##more ssh 
 alias mntWorkDrive='sudo sshfs -o allow_other lorisadmin@132.206.37.107:/var/www/loris/ /mnt/work'
 alias work='sshpass -p "cyc93826" ssh -o StrictHostKeyChecking=no lorisadmin@132.206.37.107 -YC'
 
-#mcgill anyConnect vpn
+##mcgill anyConnect vpn
 alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
 
-#set up quick bashrc
+##set up quick bashrc
 function bashrc {
 	em ~/.bashrc_custom
 	source ~/.bashrc_custom 
 }
 
+
+
+
 ###################
 ## basic functions
 ###################
 
-alias ls='ls --color=auto -h --group-directories-first -t -r'
+
+
 
 
 #set up node js
