@@ -3,9 +3,24 @@ alias sqlsource='mysql -h ace-db-1.cbrain.mcgill.ca -u cyc_admin -pCycHasThisPas
 export PATH=/home/lorisadmin/anaconda3/bin:$PATH
 alias pcs='phpcs --extensions=php/php,inc/php '
 alias pcb='phpcbf --extensions=php/php,inc/php '
-
 #cd to the project file
 cd /var/www/loris/
+
+##turn on/off frontend debug
+function db_debug {
+#         echo $1 
+         if [ "$1" = "on" ]; then
+            echo "turning on"
+            rm /var/www/loris/project/config.xml
+            cp /var/www/loris/project/config.xml.on /var/www/loris/project/config.xml
+         fi
+         if [ "$1" = "off" ]; then
+            echo "turning off"
+            rm /var/www/loris/project/config.xml
+            cp /var/www/loris/project/config.xml.off /var/www/loris/project/config.xml
+         fi
+}
+
 
 
 
@@ -190,4 +205,10 @@ wget \
 			      --restrict-file-names=windows \
 				        --no-parent \
 					         $1
+}
+
+
+function ptbl {
+         parse $1
+         gtable $1
 }
