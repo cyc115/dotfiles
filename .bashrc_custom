@@ -9,7 +9,7 @@ cd /var/www/loris/
 ##turn on/off frontend debug
 function db_debug {
 #         echo $1 
-         if [ "$1" = "on" ]; then
+         if [ "$13" = "on" ]; then
             echo "turning on"
             rm /var/www/loris/project/config.xml
             cp /var/www/loris/project/config.xml.on /var/www/loris/project/config.xml
@@ -20,10 +20,6 @@ function db_debug {
             cp /var/www/loris/project/config.xml.off /var/www/loris/project/config.xml
          fi
 }
-
-
-
-
 
 
 
