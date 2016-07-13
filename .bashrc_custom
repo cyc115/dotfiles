@@ -33,7 +33,7 @@ alias gf='sshpass -p"Ab1*abcde12" ssh -o StrictHostKeyChecking=no guofan@barn.ci
 alias vm='ssh -p 3022 127.0.0.1'
 #database assignment server
 alias db='sshpass -p"cupramen2" ssh -o StrictHostKeyChecking=no cs421g17@comp421.cs.mcgill.ca'
-alias workdb='mysql -h ace-db-1.cbrain.mcgill.ca -u cyc_admin -p'
+alias workdb='mysql -h ace-db-1.cbrain.mcgill.ca -u cyc_admin -pCycHasThisPassword123! cyc_sandbox'
 
 ##directories
 alias home='cd $HOME'
