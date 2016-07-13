@@ -18,7 +18,7 @@ alias db='sshpass -p"cupramen2" ssh -o StrictHostKeyChecking=no cs421g17@comp421
 alias home='cd $HOME'
 alias application='cd $HOME/Application/'
 alias docs='cd $HOME/Dropbox/mcgill\ y4/'
-
+alias dotfile='cd ~/dotfiles'
 ##application short cuts
 alias sl='ls'
 alias ws='/application/WebStorm-141.1550/bin/webstorm.sh'
