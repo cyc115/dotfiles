@@ -49,9 +49,10 @@ alias workdb='mysql -h ace-db-1.cbrain.mcgill.ca -u cyc_admin -pCycHasThisPasswo
 ##directories
 alias home='cd $HOME'
 alias application='cd $HOME/Application/'
-alias docs='cd $HOME/Dropbox/mcgill\ y4/'
 
 ##application short cuts
+alias sl='ls'
+alias ls='ls --color=auto -h --group-directories-first -t -r'
 alias ws='/application/WebStorm-141.1550/bin/webstorm.sh'
 alias src='source $HOME/.bashrc_custom'
 alias eclipse='/home/yuechuan/Application/adt-bundle-linux-x86_64-20140321/eclipse/eclipse'
@@ -69,10 +70,10 @@ alias rs='redshift -O'
 alias serverdir='python -m SimpleHTTPServer'
 alias vagrant='sudo vagrant'
 
-#mcgill anyConnect vpn
+##mcgill anyConnect vpn
 alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
 
-#set up quick bashrc
+##set up quick bashrc
 function bashrc {
 	em ~/.bashrc_custom
 	source ~/.bashrc_custom 
