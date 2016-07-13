@@ -23,12 +23,6 @@ function db_debug {
 
 
 
-
-
-
-
-
-
 ## *Please note that if using this ppa I would *not* try upgrading to 14.10/15.04, ect. Do a fresh install instead. The intent here is just for users wishing to stay on 14.04*
 
 ## If upgrading releases anyway use ppa-purge *First* -
@@ -222,6 +216,19 @@ wget \
 				        --no-parent \
 					         $1
 }
+
+function parse {
+   cd /var/www/loris/tools
+   ls /var/www/loris/project/instruments/*$1* | php ./quickform_parser.php
+   cd $OLDPWD
+}
+
+function gtbl {
+   cd /var/www/loris/tools
+   ls /var/www/loris/project/instruments/*$1* | php ./generate_tables_sql.php
+   cd $OLDPWD
+}
+
 
 
 function ptbl {
