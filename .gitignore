@@ -1,6 +1,7 @@
 # ignore emacs autosave files
 .emacs.d/auto-save-list/*
 .emacs.d/session.*
+.emacs.d/ac-comphist.dat
 
 #package stuff 
 .emacs.d/ac-comphist.dat
