@@ -34,13 +34,20 @@ alias egg='bash ~/dotfiles/eggtimer.sh'
 alias nw='~/Github/photo-on-map/node_modules/nw/bin/nw'
 alias xmind='cd /home/yuechuan/Application/xmind/XMind_Linux_64bit && ./XMind & cd'
 alias rs='redshift -O'
+alias jar='java -jar'
 
 alias serverdir='python -m SimpleHTTPServer'
 alias vagrant='sudo vagrant'
+alias unblockbt='sudo rfkill unblock bluetooth'
 
-#more ssh 
-alias mntWorkDrive='sudo sshfs -o allow_other lorisadmin@132.206.37.107:/var/www/loris/ /mnt/work'
+
+
+
+#more ssh
+
+alias mntWorkDrive='sudo umount -l /mnt/work & sudo sshfs -o allow_other lorisadmin@132.206.37.107:/var/www/loris/ /mnt/work'
 alias work='sshpass -p "cyc93826" ssh -o StrictHostKeyChecking=no lorisadmin@132.206.37.107 -YC'
+alias workr='sshpass -p "cyc93826" ssh -o StrictHostKeyChecking=no lorisadmin@132.206.37.107 -YCt tmux attach -t default'
 
 #mcgill anyConnect vpn
 alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
@@ -88,6 +95,11 @@ alias xmind='cd /home/yuechuan/Application/xmind/XMind_Linux_64bit && ./XMind & 
 alias rs='redshift -O'
 alias folder='nautilus . &'
 
+alias em='emacs -nw'     # No X11 windows
+alias eqq='emacs -nw -Q' # No config and no X11
+
+
+
 alias serverdir='python -m SimpleHTTPServer'
 
 #mcgill anyConnect vpn
@@ -98,6 +110,19 @@ function bashrc {
 	em ~/.bashrc_custom
 	source ~/.bashrc_custom 
 }
+
+
+# perma alias:
+# quickly append expressions to bashrc.
+function quickrc {
+         if [ "$#" -ne 1 ]; then
+            echo "One expression is needed as argument to be concatinated to .bashrc_custom"
+         else
+            echo "$1" >> ~/.bashrc_custom
+         fi
+}
+
+
 
 ###################
 ## basic functions
@@ -175,3 +200,7 @@ wget \
 				        --no-parent \
 					         $1
 }
+
+
+
+
