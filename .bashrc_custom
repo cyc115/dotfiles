@@ -49,6 +49,7 @@ alias workdb='mysql -h ace-db-1.cbrain.mcgill.ca -u cyc_admin -pCycHasThisPasswo
 ##directories
 alias home='cd $HOME'
 alias application='cd $HOME/Application/'
+alias dotfile='cd ~/dotfiles'
 
 ##application short cuts
 alias sl='ls'
@@ -116,6 +117,11 @@ alias xmind='cd /home/yuechuan/Application/xmind/XMind_Linux_64bit && ./XMind & 
 alias rs='redshift -O'
 alias folder='nautilus . &'
 
+alias em='emacs -nw'     # No X11 windows
+alias eqq='emacs -nw -Q' # No config and no X11
+
+
+
 alias serverdir='python -m SimpleHTTPServer'
 
 #mcgill anyConnect vpn
@@ -126,6 +132,19 @@ function bashrc {
 	em ~/.bashrc_custom
 	source ~/.bashrc_custom 
 }
+
+
+# perma alias:
+# quickly append expressions to bashrc.
+function quickrc {
+         if [ "$#" -ne 1 ]; then
+            echo "One expression is needed as argument to be concatinated to .bashrc_custom"
+         else
+            echo "$1" >> ~/.bashrc_custom
+         fi
+}
+
+
 
 ###################
 ## basic functions
