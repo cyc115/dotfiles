@@ -17,10 +17,11 @@ alias db='sshpass -p"cupramen2" ssh -o StrictHostKeyChecking=no cs421g17@comp421
 ##directories
 alias home='cd $HOME'
 alias application='cd $HOME/Application/'
-alias docs='cd $HOME/Dropbox/mcgill\ y4/'
 alias dotfile='cd ~/dotfiles'
+
 ##application short cuts
 alias sl='ls'
+alias ls='ls --color=auto -h --group-directories-first -t -r'
 alias ws='/application/WebStorm-141.1550/bin/webstorm.sh'
 alias src='source $HOME/.bashrc_custom'
 alias eclipse='/home/yuechuan/Application/adt-bundle-linux-x86_64-20140321/eclipse/eclipse'
@@ -34,17 +35,14 @@ alias egg='bash ~/dotfiles/eggtimer.sh'
 alias nw='~/Github/photo-on-map/node_modules/nw/bin/nw'
 alias xmind='cd /home/yuechuan/Application/xmind/XMind_Linux_64bit && ./XMind & cd'
 alias rs='redshift -O'
-alias jar='java -jar'
 
 alias serverdir='python -m SimpleHTTPServer'
 alias vagrant='sudo vagrant'
-alias unblockbt='sudo rfkill unblock bluetooth'
 
 
 
 
 #more ssh
-
 alias mntWorkDrive='sudo umount -l /mnt/work & sudo sshfs -o allow_other lorisadmin@132.206.37.107:/var/www/loris/ /mnt/work'
 alias work='sshpass -p "cyc93826" ssh -o StrictHostKeyChecking=no lorisadmin@132.206.37.107 -YC'
 alias workr='sshpass -p "cyc93826" ssh -o StrictHostKeyChecking=no lorisadmin@132.206.37.107 -YCt tmux attach -t default'
