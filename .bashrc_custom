@@ -71,7 +71,8 @@ alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
 ##set up quick bashrc
 function bashrc {
 	em ~/.bashrc_custom
-	source ~/.bashrc_custom 
+	source ~/.bashrc_custom
+        cd $OLDPWD
 }
 
 ###################
@@ -121,12 +122,6 @@ alias serverdir='python -m SimpleHTTPServer'
 #mcgill anyConnect vpn
 alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
 
-#set up quick bashrc
-function bashrc {
-	em ~/.bashrc_custom
-	source ~/.bashrc_custom 
-}
-
 
 # perma alias:
 # quickly append expressions to bashrc.
@@ -135,6 +130,8 @@ function quickrc {
             echo "One expression is needed as argument to be concatinated to .bashrc_custom"
          else
             echo "$1" >> ~/.bashrc_custom
+            source ~/.bashrc_custom
+            cd $OLDPWD
          fi
 }
 
@@ -233,5 +230,7 @@ function gtbl {
 
 function ptbl {
          parse $1
-         gtable $1
+         gtbl $1
 }
+
+alias gbranch="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
