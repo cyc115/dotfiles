@@ -23,6 +23,8 @@
 ;;genereal set up 
 ;;===============
 
+;;git integration
+(require 'git)
 
 ;;allow open recent files 
 (require 'recentf)
