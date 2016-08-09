@@ -123,18 +123,18 @@ alias vagrant='sudo vagrant'
 ##mcgill anyConnect vpn
 alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
 
-##set up quick bashrc
+#set up quick bashrc
 function bashrc {
 	em ~/.bashrc_custom
 	source ~/.bashrc_custom
-        cd $OLDPWD
+    cd $OLDPWD
 }
 
 ###################
 ## basic functions
 ###################
 
-alias ls='ls --color=auto -h --group-directories-first'
+alias ls='ls --color=auto -h --group-directories-first -t -r'
 
 
 #set up node js
@@ -176,6 +176,12 @@ alias serverdir='python -m SimpleHTTPServer'
 
 #mcgill anyConnect vpn
 alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
+
+#set up quick bashrc
+function bashrc {
+	em ~/.bashrc_custom
+	source ~/.bashrc_custom 
+}
 
 
 # perma alias:
