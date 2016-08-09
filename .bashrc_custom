@@ -3,56 +3,79 @@
 ## If upgrading releases anyway use ppa-purge *First* -
 ## sudo ppa-purge ppa:mc3man/trusty-media
 
-##on system start
 
-#ssh aliases
-alias koding='ssh vm-0.iamcyc93826.koding.kd.io'
-alias pi='ssh pi@192.168.0.105'
+
+###################
+## aliases ########
+###################
+
+##application
+alias sl='ls'
+alias ls='ls --color=auto -h --group-directories-first -t -r'
+alias src='source $HOME/.bashrc_custom'
+alias jdk8='sudo update-java-alternatives -s java-8-oracle'
+alias jdk7='sudo update-java-alternatives -s java-7-oracle'
+alias idea='/home/yuechuan/Application/idea/bin/idea.sh'
+alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
+
+alias folder='nautilus . &'
+alias rs='redshift -O'
+alias jar='java -jar'
+
+alias em='emacs -nw'     # No X11 windows
+alias eqq='emacs -nw -Q' # No config and no X11
+
+alias unblockbt='sudo rfkill unblock bluetooth'
+alias scan_bt='hcitool scan'
+alias connect_keyboard='sudo bluez-simple-agent  hci0 7C:1E:52:08:BA:D1'
+
+##ssh 
 alias school='sshpass -p "rNA8si4J" ssh -o StrictHostKeyChecking=no ychen225@mimi.cs.mcgill.ca'
 alias gf='sshpass -p"Ab1*abcde12" ssh -o StrictHostKeyChecking=no guofan@barn.cim.mcgill.ca'
 alias vm='ssh root@138.68.62.243'
-#database assignment server
-alias db='sshpass -p"cupramen2" ssh -o StrictHostKeyChecking=no cs421g17@comp421.cs.mcgill.ca'
+alias mntWorkDrive='sudo umount -l /mnt/work & sudo sshfs -o allow_other lorisadmin@132.206.37.107:/var/www/loris/ /mnt/work'
+alias work='sshpass -p "cyc93826" ssh -o StrictHostKeyChecking=no lorisadmin@132.206.37.107 -YC'
+alias workr='sshpass -p "cyc93826" ssh -o StrictHostKeyChecking=no lorisadmin@132.206.37.107 -YCt tmux attach -t default'
 
 ##directories
 alias home='cd $HOME'
 alias application='cd $HOME/Application/'
 alias dotfile='cd ~/dotfiles'
 
-##application short cuts
-alias sl='ls'
-alias ls='ls --color=auto -h --group-directories-first -t -r'
-alias ws='/application/WebStorm-141.1550/bin/webstorm.sh'
-alias src='source $HOME/.bashrc_custom'
-alias eclipse='/home/yuechuan/Application/adt-bundle-linux-x86_64-20140321/eclipse/eclipse'
-alias studio='/home/yuechuan/Application/android-studio/bin/studio.sh'
-alias jdk8='sudo update-java-alternatives -s java-8-oracle'
-alias jdk7='sudo update-java-alternatives -s java-7-oracle'
-alias idea='/home/yuechuan/Application/idea/bin/idea.sh'
-alias sublime='sudo /home/yuechuan/Application/sublime_text_3/sublime_text'
-alias matlab='Application/matlab/bin/matlab'
-alias egg='bash ~/dotfiles/eggtimer.sh'
-alias nw='~/Github/photo-on-map/node_modules/nw/bin/nw'
-alias xmind='cd /home/yuechuan/Application/xmind/XMind_Linux_64bit && ./XMind & cd'
-alias rs='redshift -O'
-alias jar='java -jar'
-
-alias serverdir='python -m SimpleHTTPServer'
-alias vagrant='sudo vagrant'
-alias unblockbt='sudo rfkill unblock bluetooth'
-alias scan_bt='hcitool scan'
-alias connect_keyboard='sudo bluez-simple-agent  hci0 7C:1E:52:08:BA:D1'
-
-
-
-#more ssh
-
-alias mntWorkDrive='sudo umount -l /mnt/work & sudo sshfs -o allow_other lorisadmin@132.206.37.107:/var/www/loris/ /mnt/work'
-alias work='sshpass -p "cyc93826" ssh -o StrictHostKeyChecking=no lorisadmin@132.206.37.107 -YC'
-alias workr='sshpass -p "cyc93826" ssh -o StrictHostKeyChecking=no lorisadmin@132.206.37.107 -YCt tmux attach -t default'
 
 #mcgill anyConnect vpn
 alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
+
+
+###################
+## PATH VAR #######
+###################
+
+#set up node js
+export NODE_PATH="/usr/bin/nodejs"
+#set up scala 
+export SCALA_HOME="/home/yuechuan/Application/scala-2.11.1"
+#set up sbt
+PATH=$PATH:/home/yuechuan/Application/sbt/bin
+#set up node webkit
+PATH=$PATH:/home/yuechuan/Application/nwjs
+#add application folder to path
+PATH=$PATH:/home/yuechuan/Application
+#android stuff
+PATH=$PATH:/home/yuechuan/Application/android-sdk-linux/tools
+PATH=$PATH:/home/yuechuan/Application/android-sdk-linux/platform-tools
+#mysql
+PATH=$PATH:/home/yuechuan/Application/mysql-5.6.26-linux-glibc2.5-x86_64/bin
+#set up lang var
+export LANG="en_CA.UTF-8"
+export LC_ALL="en_CA.UTF-8"
+PATH=$PATH:~/dotfiles/bin
+
+
+
+############################
+##additional functionalities
+############################
 
 #set up quick bashrc
 function bashrc {
@@ -60,139 +83,6 @@ function bashrc {
 	source ~/.bashrc_custom
     cd $OLDPWD
 }
-
-###################
-## basic functions
-###################
-
-alias ls='ls --color=auto -h --group-directories-first -t -r'
-
-
-#set up node js
-export NODE_PATH="/usr/bin/nodejs"
-#set up scala 
-export SCALA_HOME="/home/yuechuan/Application/scala-2.11.1"
-#set up sbt
-PATH=$PATH:/home/yuechuan/Application/sbt/bin
-#set up node webkit
-PATH=$PATH:/home/yuechuan/Application/nwjs
-#add application folder to path
-PATH=$PATH:/home/yuechuan/Application
-
-#add go to path
-alias docs='cd $HOME/Dropbox/mcgill\ y4/'
-
-##application short cuts
-alias ws='/application/WebStorm-141.1550/bin/webstorm.sh'
-alias src='source $HOME/.bashrc_custom'
-alias eclipse='/home/yuechuan/Application/adt-bundle-linux-x86_64-20140321/eclipse/eclipse'
-alias studio='/home/yuechuan/Application/android-studio/bin/studio.sh'
-alias jdk8='sudo update-java-alternatives -s java-8-oracle'
-alias jdk7='sudo update-java-alternatives -s java-7-oracle'
-alias idea='/home/yuechuan/Application/idea/bin/idea.sh'
-alias sublime='sudo /home/yuechuan/Application/sublime_text_3/sublime_text'
-alias matlab='Application/matlab/bin/matlab'
-alias egg='bash ~/dotfiles/eggtimer.sh'
-alias nw='~/Github/photo-on-map/node_modules/nw/bin/nw'
-alias xmind='cd /home/yuechuan/Application/xmind/XMind_Linux_64bit && ./XMind & cd'
-alias rs='redshift -O'
-alias folder='nautilus . &'
-
-alias em='emacs -nw'     # No X11 windows
-alias eqq='emacs -nw -Q' # No config and no X11
-
-
-
-alias serverdir='python -m SimpleHTTPServer'
-
-#mcgill anyConnect vpn
-alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
-
-#set up quick bashrc
-function bashrc {
-	em ~/.bashrc_custom
-	source ~/.bashrc_custom 
-}
-
-
-# perma alias:
-# quickly append expressions to bashrc.
-function quickrc {
-         if [ "$#" -ne 1 ]; then
-            echo "One expression is needed as argument to be concatinated to .bashrc_custom"
-         else
-            echo "$1" >> ~/.bashrc_custom
-            source ~/.bashrc_custom
-            cd $OLDPWD
-         fi
-}
-
-
-
-###################
-## basic functions
-###################
-
-alias ls='ls --color=auto -h --group-directories-first'
-
-
-#set up node js
-export NODE_PATH="/usr/bin/nodejs"
-#set up scala 
-export SCALA_HOME="/home/yuechuan/Application/scala-2.11.1"
-#set up sbt
-PATH=$PATH:/home/yuechuan/Application/sbt/bin
-#set up node webkit
-PATH=$PATH:/home/yuechuan/Application/nwjs
-#add application folder to path
-PATH=$PATH:/home/yuechuan/Application
-
-#add go to path
-export GOROOT=/usr/lib/go
-export GOPATH=/home/yuechuan/Github/FirefighterTracking/prototype/server
-export GOPATH=$GOPATH:/home/yuechuan/Github/FirefighterTracking/prototype/videoserver
-#PATH=$PATH:$GOROOT/bin
-
-#function to set current dir as GOPATH
-function gopath
-{
-export GOPATH=`pwd`
-}
-
-function goinit
-{
-mkdir bin pkg src
-}
-
-#android stuff
-PATH=$PATH:/home/yuechuan/Application/android-sdk-linux/tools
-PATH=$PATH:/home/yuechuan/Application/android-sdk-linux/platform-tools
-#mysql
-PATH=$PATH:/home/yuechuan/Application/mysql-5.6.26-linux-glibc2.5-x86_64/bin
-
-
-#scripts that I have made will
-export PATH=$PATH:/home/yuechuan/Documents/myscript
-
-#set up lang var
-export LANG="en_CA.UTF-8"
-export LC_ALL="en_CA.UTF-8"
-PATH=$PATH:~/dotfiles/bin
-
-
-#emacs
-alias em='emacs -nw'
-
-#set up TESSERACT PDF OCR variable
-TESSDATA_PREFIX=/home/yuechuan/Application/tesseract-ocr/
-
-
-#Jekyll alias
-alias jk=jekyll
-
-############################
-##additional functionalities
-############################
 
 function webscrap {
 wget \
@@ -204,6 +94,17 @@ wget \
 			      --restrict-file-names=windows \
 				        --no-parent \
 					         $1
+}
+
+# quickly append expressions to bashrc.
+function quickrc {
+         if [ "$#" -ne 1 ]; then
+            echo "One expression is needed as argument to be concatinated to .bashrc_custom"
+         else
+            echo "$1" >> ~/.bashrc_custom
+            source ~/.bashrc_custom
+            cd $OLDPWD
+         fi
 }
 
 
