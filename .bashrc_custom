@@ -57,7 +57,8 @@ alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
 #set up quick bashrc
 function bashrc {
 	em ~/.bashrc_custom
-	source ~/.bashrc_custom 
+	source ~/.bashrc_custom
+    cd $OLDPWD
 }
 
 ###################
@@ -121,6 +122,8 @@ function quickrc {
             echo "One expression is needed as argument to be concatinated to .bashrc_custom"
          else
             echo "$1" >> ~/.bashrc_custom
+            source ~/.bashrc_custom
+            cd $OLDPWD
          fi
 }
 
