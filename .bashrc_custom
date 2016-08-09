@@ -1,10 +1,65 @@
 ##on work VM
-alias sqlsource='mysql -h ace-db-1.cbrain.mcgill.ca -u cyc_admin -pCycHasThisPassword123! --verbose cyc_sandbox < '
+
 export PATH=/home/lorisadmin/anaconda3/bin:$PATH
 alias pcs='phpcs --extensions=php/php,inc/php '
 alias pcb='phpcbf --extensions=php/php,inc/php '
 #cd to the project file
 cd /var/www/loris/
+
+
+function sqlsource {
+         ## automagically drop table if table already exists if matches with Clinical_*.sql and not a meta
+         ## file
+
+         if [[ "$1" -eq *.sql ]];
+         then
+                echo 'match .sql'
+         else
+                echo 'does not match .sql'
+         fi
+
+         
+         if [[ "$1" -eq Clinical_* ]];
+         then
+                echo 'match Clinical_'
+         else
+                echo 'does not match Clinical_'                
+         fi
+
+         
+         if [["$1" -neq *_Meta.sql ]];
+         then
+                echo 'match _Meta.sql'
+         else
+                echo 'does not match _Meta. sql'
+         fi
+
+         
+         if [[ "$1" -eq *.sql ]] && [[ "$1" -eq Clinical_* ]] && [["$1" -neq *_Meta.sql ]];
+         then
+                echo "==== attempt to drop table if exists ==== "
+                local tbl_name="$(echo "$1" | cut -d'.' -f 1)"
+                mysql -h ace-db-1.cbrain.mcgill.ca -u cyc_admin -pCycHasThisPassword123! --verbose cyc_sandbox -e "drop table if exist $tbl_name ;" 
+         fi 
+
+         mysql -h ace-db-1.cbrain.mcgill.ca -u cyc_admin -pCycHasThisPassword123! --verbose cyc_sandbox < $1
+}
+
+
+## set up the tmux windows in the workstation. 
+function setup_tmux {
+         tmux new-session -d -s default
+         tmux new-window -t default:1 -n 'instruments' 'cd /var/www/loris/project/instruments'
+         tmux new-window -t default:2 -n 'tables' 'cd /var/www/loris/project/tables_sql'
+         tmux new-window -t default:3 -n 'tools' 'cd /var/www/loris/tools'
+         tmux new-window -t default:4 -n 'mysql' 'workdb'
+         tmux new-window -t default:5 -n 'logs' 'sudo su & /var/log/apache2'
+         tmux new-window -t default:6 -n 'term1' 
+         tmux new-window -t default:6 -n 'root' 'cd'
+
+         tmux select-window -t default:1
+         tmux -2 attach-session -t default
+}
 
 ##turn on/off frontend debug
 function db_debug {
@@ -226,11 +281,16 @@ function gtbl {
    cd $OLDPWD
 }
 
-
-
 function ptbl {
          parse $1
          gtbl $1
+         mv /var/www/loris/project/tables_sql/Clinical_* /var/www/loris/project/tables_sql/Clinical/
+         mv /var/www/loris/project/tables_sql/General_Health_* /var/www/loris/project/tables_sql/Clinical/
+         mv /var/www/loris/project/tables_sql/Screening_* /var/www/loris/project/tables_sql/Screening/
 }
 
 alias gbranch="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
+alias srcrc="source ~/.bashrc_custom && cd $OLDPWD && echo 'bashrc sourced'"
+alias gcmb="git checkout master && git checkout -b "
+alias gdiff='git diff'
+alias em='emacs -nw'
