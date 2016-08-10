@@ -42,6 +42,11 @@ alias home='cd $HOME'
 alias application='cd $HOME/Application/'
 alias dotfile='cd ~/dotfiles'
 
+alias gbranch="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
+alias srcrc="source ~/.bashrc_custom && cd $OLDPWD && echo 'bashrc sourced'"
+alias gcmb="git checkout master && git checkout -b "
+alias gdiff='git diff'
+
 
 #mcgill anyConnect vpn
 alias vpn='~/Application/anyconnect-4.1.00028/vpn/vpnui &'
