@@ -11,36 +11,36 @@ function sqlsource {
          ## automagically drop table if table already exists if matches with Clinical_*.sql and not a meta
          ## file
 
-         if [[ "$1" -eq *.sql ]];
-         then
-                echo 'match .sql'
-         else
-                echo 'does not match .sql'
-         fi
+         # if [[ "$1" -eq *.sql ]];
+         # then
+         #        echo 'match .sql'
+         # else
+         #        echo 'does not match .sql'
+         # fi
 
          
-         if [[ "$1" -eq Clinical_* ]];
-         then
-                echo 'match Clinical_'
-         else
-                echo 'does not match Clinical_'                
-         fi
+         # if [[ "$1" -eq Clinical_* ]];
+         # then
+         #        echo 'match Clinical_'
+         # else
+         #        echo 'does not match Clinical_'                
+         # fi
 
          
-         if [["$1" -neq *_Meta.sql ]];
-         then
-                echo 'match _Meta.sql'
-         else
-                echo 'does not match _Meta. sql'
-         fi
+         # if [["$1" -neq *_Meta.sql ]];
+         # then
+         #        echo 'match _Meta.sql'
+         # else
+         #        echo 'does not match _Meta. sql'
+         # fi
 
          
-         if [[ "$1" -eq *.sql ]] && [[ "$1" -eq Clinical_* ]] && [["$1" -neq *_Meta.sql ]];
-         then
-                echo "==== attempt to drop table if exists ==== "
-                local tbl_name="$(echo "$1" | cut -d'.' -f 1)"
-                mysql -h ace-db-1.cbrain.mcgill.ca -u cyc_admin -pCycHasThisPassword123! --verbose cyc_sandbox -e "drop table if exist $tbl_name ;" 
-         fi 
+         # if [[ "$1" -eq *.sql ]] && [[ "$1" -eq Clinical_* ]] && [["$1" -neq *_Meta.sql ]];
+         # then
+         #        echo "==== attempt to drop table if exists ==== "
+         #        local tbl_name="$(echo "$1" | cut -d'.' -f 1)"
+         #        mysql -h ace-db-1.cbrain.mcgill.ca -u cyc_admin -pCycHasThisPassword123! --verbose cyc_sandbox -e "drop table if exist $tbl_name ;" 
+         # fi 
 
          mysql -h ace-db-1.cbrain.mcgill.ca -u cyc_admin -pCycHasThisPassword123! --verbose cyc_sandbox < $1
 }
