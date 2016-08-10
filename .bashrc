@@ -273,3 +273,6 @@ source ~/.bashrc_custom
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# added by Anaconda3 4.1.1 installer
+export PATH="/root/anaconda3/bin:$PATH"
